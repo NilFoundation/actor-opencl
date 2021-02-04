@@ -51,15 +51,15 @@ namespace nil {
                 // nop
             }
 
-            spawner::module::id_t manager::id() const {
-                return spawner::module::opencl_manager;
+            spawner_module::id_t manager::id() const {
+                return spawner_module::opencl_manager;
             }
 
             void *manager::subtype_ptr() {
                 return this;
             }
 
-            spawner::module *manager::make(spawner &sys, nil::actor::detail::type_list<>) {
+            spawner_module *manager::make(spawner &sys, nil::actor::detail::type_list<>) {
                 return new manager {sys};
             }
 
@@ -128,7 +128,7 @@ namespace nil {
                         // seems that just apple implemented the
                         // pfn_notify callback, but we can get
                         // the build log
-#ifndef ACTOR_MACOS
+#ifndef BOOST_OS_MACOS_AVAILABLE
                         ACTOR_LOG_ERROR(ACTOR_ARG(ss.str()));
 #endif
                     }

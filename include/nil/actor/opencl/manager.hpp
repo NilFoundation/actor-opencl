@@ -32,7 +32,7 @@ namespace nil {
     namespace actor {
         namespace opencl {
 
-            class manager : public spawner::module {
+            class manager : public spawner_module {
             public:
                 friend class program;
 
@@ -71,7 +71,7 @@ namespace nil {
 
                 void *subtype_ptr() override;
 
-                static spawner::module *make(spawner &sys, detail::type_list<>);
+                static spawner_module *make(spawner &sys, detail::type_list<>);
 
                 // OpenCL functionality
 
