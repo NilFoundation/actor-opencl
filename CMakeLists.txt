@@ -27,6 +27,17 @@ macro(cm_find_package NAME)
     endif()
 endmacro()
 
+option(BUILD_WITH_OPENCL "Build with OpenCL toolkit support" TRUE)
+
+if(BUILD_WITH_OPENCL)
+    cm_find_package(OpenCL REQUIRED)
+else()
+    cm_find_package(OpenCL)
+    if(NOT OpenCL_FOUND)
+        return()
+    endif()
+endif()
+
 if(NOT Boost_THREAD_FOUND)
     cm_find_package(Boost COMPONENTS thread)
 endif()
