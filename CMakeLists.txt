@@ -74,7 +74,7 @@ set_target_properties(${CMAKE_WORKSPACE_NAME}_${CURRENT_PROJECT_NAME} PROPERTIES
                       CXX_STANDARD 17
                       CXX_STANDARD_REQUIRED TRUE)
 
-target_link_libraries(${CMAKE_WORKSPACE_NAME}_${CURRENT_PROJECT_NAME} PRIVATE
+target_link_libraries(${CMAKE_WORKSPACE_NAME}_${CURRENT_PROJECT_NAME} PUBLIC
                       ${CMAKE_WORKSPACE_NAME}::core
 
                       ${OpenCL_LIBRARIES})
